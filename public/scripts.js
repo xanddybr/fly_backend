@@ -24,8 +24,8 @@ document.getElementById('phone').addEventListener('keypress', function(event) {
 function onloadInit() {
     catchLead.style.display = "none"
     video.style.display = "block"
-    btnabout.value = "SAIBA MAIS E ADQUIRA A SUA!"
-    mainTitle.textContent = "PREENCHA OS CAMPOS PARA OBTER SUA APOSTILA GRATUITA!"
+    btnabout.value = "CLICK AQUI E SAIBA MAIS!"
+    mainTitle.textContent = "CONHEÇA O PROGRAMA QUE ESTA MUDANDO A VIDA DE MILHARES DE PESSOAS!"
     //fetchStates('https://servicodados.ibge.gov.br/api/v1/localidades/estados/rj/municipios')
     //fetchStates('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
 }
