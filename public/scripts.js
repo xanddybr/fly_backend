@@ -1,4 +1,5 @@
-const btnvideo = document.getElementById("btnvideo")
+
+const btnabout = document.getElementById("btnabout")
 const catchLead = document.getElementById("catchLead")
 const myHistory = document.getElementById("myHistory")
 const mainTitle = document.getElementById("mainTitle")
@@ -23,12 +24,16 @@ document.getElementById('phone').addEventListener('keypress', function(event) {
 function onloadInit() {
     catchLead.style.display = "none"
     video.style.display = "block"
-    btnvideo.value = "Quero Minha Apostila Grátis"
+    btnabout.value = "SAIBA MAIS E ADQUIRA A SUA!"
     mainTitle.textContent = "PREENCHA OS CAMPOS PARA OBTER SUA APOSTILA GRATUITA!"
-    fetchStates('https://servicodados.ibge.gov.br/api/v1/localidades/estados/rj/municipios')
+    //fetchStates('https://servicodados.ibge.gov.br/api/v1/localidades/estados/rj/municipios')
     //fetchStates('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
 }
 
+btnabout.addEventListener("click",()=> {
+ location.href = "https://go.hotmart.com/T97844321R"
+})
+/*
 btnvideo.addEventListener("click",()=> {
   const valueButton = btnvideo.value
   switch (valueButton) { 
@@ -189,7 +194,7 @@ async function fetchStates(url) {
         yourCity.appendChild(option)
     })
 } 
-
+*/
 onloadInit()
 
 

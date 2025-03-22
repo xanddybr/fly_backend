@@ -37,22 +37,20 @@ app.set('views', './views')
                     res.status(201).send(err)
                     res.end()
                     return;
-                } 
-                if (result.length === 0) {
+                } else {
                     const sqlinsert = "INSERT INTO person VALUES (null,'"+ firstName +"', '"+ lastName +"', '"+ phone +"', '"+ email +"', null, 3, 0, "+ agreeNotify +", null, '"+ dateFormat +"'); SET @idPerson = LAST_INSERT_ID(); INSERT INTO poll VALUES (@idPerson, 'nanny history', '"+ yourCity +"' ,  '"+ age +"', '"+ howWeMet +"', '"+ positionLife + "', '"+ dateFormat +"')";
-                    mysqlCommand.query(sqlinsert, (err, result) => {
+                    mysqlCommand.query(sqlinsert, async (err, result) => {
                         if(err) {
                             res.status(400).send(err)
                             res.end()
                             return
                             } else {
-                              sendm(email, firstName)
+                             sendm(email, firstName)
                               res.status(200).send("Dados inseridos com sucesso")
                               res.end()
-                            } 
+                        } 
                      }) 
                 }
-
             }) 
         
     })
