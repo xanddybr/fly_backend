@@ -15,8 +15,8 @@ const transporter = nodemailer.createTransport({
 });
 
 function sendm(mailDestiny, name) {
-    const treatedName = name.charAt(0).toUpperCase() + name.slice(1)
-    const mailOptions = {
+      const treatedName = name.charAt(0).toUpperCase() + name.slice(1)
+      const mailOptions = {
           from: 'Catarse I.E" <contato@catarseie.com.br>', // sender address
           to: mailDestiny, // list of receivers
           subject: "Treinamento Catarse I.E, Sua apostila brinde acaba de chegar!", // Subject line
@@ -26,36 +26,34 @@ function sendm(mailDestiny, name) {
     }
 
    transporter.sendMail(mailOptions,(err,info)=> {
-        const resp = info.response
-        const partresp = resp.split(" ");
-        const accp = info.accepted
-        const rjct = info.rejected
-        const msid = info.messageId
-    if(err){
-        const sqlinsert = "insert into sendedMails values (null, null,'"+ msid +"' ,'"+ accp +"' , '"+ rjct +"', "+ partresp[0] +", 'poll', 'automatic','"+ dateFormat +"')";
-        mysqlCommand.query(sqlinsert, (err, result) => {
-          if (err) {
-            console.log("Fail in insert record...",err);
-            return
-          } else {
-            console.log("Record inserted with sucess...");
-          }
-    })
-      return
-      } else {
-        const sqlinsert = "insert into sendedMails values (null, null,'"+ msid +"' ,'"+ accp +"' , '"+ rjct +"', "+ partresp[0] +", 'poll', 'automatic','"+ dateFormat +"')";
-        mysqlCommand.query(sqlinsert, (err, result) => {
-          if (err) {
-            console.log("Fail in insert record...",err);
-            return
-          } else {
-            console.log("Log send mail number...");
-          }
-    })
-  }
+
+    if (err) { 
+      console.log("Error in send mail...",err);
+        return
+    } else {  
+
+              const resp = info.response
+              const partresp = resp.split(" ");
+              const accp = info.accepted
+              const rjct = info.rejected
+          
+              const sqlinsert = "insert into sendedMails values (null, null,'"+ msid +"' ,'"+ accp +"' , '"+ rjct +"', "+ partresp[0] +", 'poll', 'automatic','"+ dateFormat +"')";
+              mysqlCommand.query(sqlinsert, (err, result) => {
+                if (err) {
+                  console.log("Fail in insert record...",err);
+                  return
+                } else {
+                  console.log("Log send mail number...");
+                }
+            })
+    }
  })
  console.log("Email sent with success...")
 
 }
 
-module.exports = sendm;
+function sum(v1,v2) {
+    return v1 + v2
+}
+
+module.exports = {sum};
