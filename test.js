@@ -43,13 +43,13 @@ async function init() {
 
 //SYNCRONUS FUNCTION EXAMPLE
 
-
+/*
 function myFunc() {
   for(i = 0; i < 10000; i++) { console.log("It is myfunction count...", i)  } 
   return i
 }
 
-/*
+
  function init() {
     const result = myFunc()
     console.log(result)
