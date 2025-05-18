@@ -11,6 +11,7 @@ const dateFormat = date.format('HH:mm:ss DD/MM/YYYY')
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+/*
     app.post('/submit', (req, res) => { 
         const { firstName, lastName, phone, email, yourCity, age, howWeMet, positionLife, agreeNotify } = req.body
 
@@ -144,5 +145,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
                 }
         })
     })
-    
+    */
+   console.log(dateFormat)
+   
 module.exports = app;
